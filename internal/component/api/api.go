@@ -49,7 +49,7 @@ func newHandler(c container.Container) (*implHandler, error) {
 func (impl *implHandler) declareAPI() {
 	router := impl.Router()
 
-	router.Mount("admin", impl.admin)
+	router.Mount("/admin", impl.admin)
 	router.Mount("/api/v1", impl.v1)
 }
 
