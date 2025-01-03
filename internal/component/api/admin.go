@@ -1,5 +1,5 @@
 /*
-####### dolmen (c) 2024 Archivage Numérique ######################################################## MIT License #######
+####### dolmen (c) 2025 Archivage Numérique ######################################################## MIT License #######
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 */
 
@@ -13,10 +13,10 @@ import (
 	_external "github.com/ltrochet/loggers"
 )
 
-func (api *API) admin(router api.Router) {
+func (impl *implHandler) admin(router api.Router) {
 	router.Use(
-		middleware.Logger(api.Logger()),
-		middleware.Recover(api.Logger()),
+		middleware.Logger(impl.Logger()),
+		middleware.Recover(impl.Logger()),
 	)
 
 	router.Get(

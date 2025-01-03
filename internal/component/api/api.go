@@ -1,13 +1,11 @@
 /*
-####### dolmen (c) 2024 Archivage Numérique ######################################################## MIT License #######
+####### dolmen (c) 2025 Archivage Numérique ######################################################## MIT License #######
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 */
 
 package api
 
 import (
-	"net/http"
-
 	"github.com/archnum/sdk.application/component/logger"
 	"github.com/archnum/sdk.application/container"
 	"github.com/archnum/sdk.base/uuid"
@@ -17,13 +15,13 @@ import (
 )
 
 type (
-	API struct {
+	implHandler struct {
 		api.Manager
 		service service.Service
 	}
 )
 
-func newAPI(c container.Container) (*API, error) {
+func newHandler(c container.Container) (*implHandler, error) {
 	logger := logger.Value(c)
 
 	id, err := uuid.New()
@@ -38,26 +36,21 @@ func newAPI(c container.Container) (*API, error) {
 		Logger: logger,
 	}
 
-	api := &API{
+	impl := &implHandler{
 		Manager: api.New(p),
 		service: service.Value(c),
 	}
 
-	return api, nil
+	impl.declareAPI()
+
+	return impl, nil
 }
 
-func newHandler(c container.Container) (http.Handler, error) {
-	api, err := newAPI(c)
-	if err != nil {
-		return nil, err
-	}
+func (impl *implHandler) declareAPI() {
+	router := impl.Router()
 
-	router := api.Router()
-
-	router.Mount("admin", api.admin)
-	router.Mount("/api/v1", api.v1)
-
-	return api, nil
+	router.Mount("admin", impl.admin)
+	router.Mount("/api/v1", impl.v1)
 }
 
 /*

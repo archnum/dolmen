@@ -3,4 +3,4 @@
 AFAIRE
 
 ---
-Copyright (c) 2024 Archivage Numérique
+Copyright (c) 2025 Archivage Numérique

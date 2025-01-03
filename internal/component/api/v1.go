@@ -1,5 +1,5 @@
 /*
-####### dolmen (c) 2024 Archivage Numérique ######################################################## MIT License #######
+####### dolmen (c) 2025 Archivage Numérique ######################################################## MIT License #######
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 */
 
@@ -10,14 +10,14 @@ import (
 	"github.com/archnum/sdk.http/api/middleware"
 )
 
-func (api *API) v1(router api.Router) {
+func (impl *implHandler) v1(router api.Router) {
 
 	router.Use(
-		middleware.Logger(api.Logger()),
-		middleware.Recover(api.Logger()),
+		middleware.Logger(impl.Logger()),
+		middleware.Recover(impl.Logger()),
 	)
 
-	router.Mount("/jobs", api.v1Jobs)
+	router.Mount("/jobs", impl.v1Jobs)
 }
 
 /*

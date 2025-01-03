@@ -1,5 +1,5 @@
 /*
-####### dolmen (c) 2024 Archivage Numérique ######################################################## MIT License #######
+####### dolmen (c) 2025 Archivage Numérique ######################################################## MIT License #######
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 */
 
@@ -8,8 +8,8 @@ package memory
 import (
 	"sync"
 
-	"github.com/archnum/sdk.base/uuid"
 	"github.com/archnum/dolmen.jw/jw"
+	"github.com/archnum/sdk.base/uuid"
 )
 
 type (

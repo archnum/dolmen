@@ -1,13 +1,13 @@
 /*
-####### dolmen (c) 2024 Archivage Numérique ######################################################## MIT License #######
+####### dolmen (c) 2025 Archivage Numérique ######################################################## MIT License #######
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 */
 
 package stores
 
 import (
-	"github.com/archnum/sdk.application/container"
 	"github.com/archnum/dolmen/internal/store"
+	"github.com/archnum/sdk.application/container"
 )
 
 type (

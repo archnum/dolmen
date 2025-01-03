@@ -1,5 +1,5 @@
 /*
-####### dolmen (c) 2024 Archivage Numérique ######################################################## MIT License #######
+####### dolmen (c) 2025 Archivage Numérique ######################################################## MIT License #######
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 */
 
@@ -8,10 +8,10 @@ package service
 import (
 	"context"
 
+	"github.com/archnum/dolmen.jw/jw"
 	_logger "github.com/archnum/sdk.application/component/logger"
 	"github.com/archnum/sdk.application/container"
 	"github.com/archnum/sdk.base/logger"
-	"github.com/archnum/dolmen.jw/jw"
 
 	"github.com/archnum/dolmen/internal/component/adapter"
 )

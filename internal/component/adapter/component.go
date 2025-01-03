@@ -1,5 +1,5 @@
 /*
-####### dolmen (c) 2024 Archivage Numérique ######################################################## MIT License #######
+####### dolmen (c) 2025 Archivage Numérique ######################################################## MIT License #######
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 */
 
@@ -8,8 +8,8 @@ package adapter
 import (
 	"context"
 
-	"github.com/archnum/sdk.application/container"
 	"github.com/archnum/dolmen.jw/jw"
+	"github.com/archnum/sdk.application/container"
 
 	"github.com/archnum/dolmen/internal/component/stores"
 	"github.com/archnum/dolmen/internal/store"

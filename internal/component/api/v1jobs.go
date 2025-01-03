@@ -1,5 +1,5 @@
 /*
-####### dolmen (c) 2024 Archivage Numérique ######################################################## MIT License #######
+####### dolmen (c) 2025 Archivage Numérique ######################################################## MIT License #######
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 */
 
@@ -8,15 +8,15 @@ package api
 import (
 	"net/http"
 
+	"github.com/archnum/dolmen.jw/jw"
 	"github.com/archnum/sdk.base/uuid"
 	"github.com/archnum/sdk.http/api"
 	"github.com/archnum/sdk.http/api/bind"
 	"github.com/archnum/sdk.http/api/failure"
 	"github.com/archnum/sdk.http/api/render"
-	"github.com/archnum/dolmen.jw/jw"
 )
 
-func (api *API) v1CreateJob(rr render.Renderer) error {
+func (impl *implHandler) v1CreateJob(rr render.Renderer) error {
 	jc := new(jw.JobCore)
 
 	if err := bind.Body(rr, bind.DefaultMaxBodySize, jc); err != nil {
@@ -36,7 +36,7 @@ func (api *API) v1CreateJob(rr render.Renderer) error {
 		return failure.BadRequest(err) /////////////////////////////////////////////////////////////////////////////////
 	}
 
-	job, err := api.service.CreateJob(rr.Request().Context(), jc)
+	job, err := impl.service.CreateJob(rr.Request().Context(), jc)
 	if err != nil {
 		return err
 	}
@@ -51,8 +51,8 @@ func (api *API) v1CreateJob(rr render.Renderer) error {
 	return nil
 }
 
-func (api *API) v1Jobs(router api.Router) {
-	router.Post("/", api.v1CreateJob)
+func (impl *implHandler) v1Jobs(router api.Router) {
+	router.Post("/", impl.v1CreateJob)
 }
 
 /*
