@@ -50,8 +50,8 @@ func main() {
 		)
 
 		err = c.Run( //////////////////////////////// Liste par ordre d'exécution //////////////////////////////////////
-			"http.server",
-			"waitend",
+			server.Name,
+			waitend.Name,
 		)
 	}
 
