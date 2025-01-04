@@ -8,9 +8,9 @@ package store
 import (
 	"context"
 
-	"github.com/archnum/dolmen.jw/jw"
 	"github.com/archnum/sdk.base/failure"
 	"github.com/archnum/sdk.base/kv"
+	"github.com/archnum/sdk.jw/jw"
 
 	"github.com/archnum/dolmen/internal/store/memory"
 	"github.com/archnum/dolmen/internal/store/mongodb"

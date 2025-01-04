@@ -8,8 +8,8 @@ package adapter
 import (
 	"context"
 
-	"github.com/archnum/dolmen.jw/jw"
 	"github.com/archnum/sdk.application/container"
+	"github.com/archnum/sdk.jw/jw"
 
 	"github.com/archnum/dolmen/internal/component/stores"
 	"github.com/archnum/dolmen/internal/store"

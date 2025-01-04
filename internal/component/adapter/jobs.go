@@ -8,7 +8,7 @@ package adapter
 import (
 	"context"
 
-	"github.com/archnum/dolmen.jw/jw"
+	"github.com/archnum/sdk.jw/jw"
 )
 
 func (impl *implComponent) CreateJob(ctx context.Context, job *jw.Job) (*jw.Job, error) {

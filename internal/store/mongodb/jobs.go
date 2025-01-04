@@ -8,8 +8,8 @@ package mongodb
 import (
 	"context"
 
-	"github.com/archnum/dolmen.jw/jw"
 	"github.com/archnum/sdk.base/failure"
+	"github.com/archnum/sdk.jw/jw"
 )
 
 func (impl *implStore) CreateJob(ctx context.Context, job *jw.Job) (*jw.Job, error) {

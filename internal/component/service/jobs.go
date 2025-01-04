@@ -8,8 +8,8 @@ package service
 import (
 	"context"
 
-	"github.com/archnum/dolmen.jw/jw"
 	"github.com/archnum/sdk.base/logger/level"
+	"github.com/archnum/sdk.jw/jw"
 )
 
 func (impl *implComponent) CreateJob(ctx context.Context, jc *jw.JobCore) (*jw.Job, error) {

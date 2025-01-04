@@ -8,8 +8,8 @@ package memory
 import (
 	"sync"
 
-	"github.com/archnum/dolmen.jw/jw"
 	"github.com/archnum/sdk.base/uuid"
+	"github.com/archnum/sdk.jw/jw"
 )
 
 type (
