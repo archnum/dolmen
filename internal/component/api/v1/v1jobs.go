@@ -3,7 +3,7 @@
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 */
 
-package api
+package v1
 
 import (
 	"net/http"
@@ -16,7 +16,7 @@ import (
 	"github.com/archnum/sdk.jw/jw"
 )
 
-func (impl *implHandler) v1CreateJob(rr render.Renderer) error {
+func (api *API) createJob(rr render.Renderer) error {
 	jc := new(jw.JobCore)
 
 	if err := bind.Body(rr, bind.DefaultMaxBodySize, jc); err != nil {
@@ -36,7 +36,7 @@ func (impl *implHandler) v1CreateJob(rr render.Renderer) error {
 		return failure.BadRequest(err) /////////////////////////////////////////////////////////////////////////////////
 	}
 
-	job, err := impl.service.CreateJob(rr.Request().Context(), jc)
+	job, err := api.service.CreateJob(rr.Request().Context(), jc)
 	if err != nil {
 		return err
 	}
@@ -51,8 +51,8 @@ func (impl *implHandler) v1CreateJob(rr render.Renderer) error {
 	return nil
 }
 
-func (impl *implHandler) v1Jobs(router api.Router) {
-	router.Post("/", impl.v1CreateJob)
+func (api *API) jobs(router api.Router) {
+	router.Post("/", api.createJob)
 }
 
 /*

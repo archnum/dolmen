@@ -11,13 +11,15 @@ import (
 	"github.com/archnum/sdk.base/uuid"
 	"github.com/archnum/sdk.http/api"
 
-	"github.com/archnum/dolmen/internal/component/service"
+	"github.com/archnum/dolmen/internal/component/api/admin"
+	v1 "github.com/archnum/dolmen/internal/component/api/v1"
 )
 
 type (
 	implHandler struct {
 		api.Manager
-		service service.Service
+		admin *admin.API
+		v1    *v1.API
 	}
 )
 
@@ -36,21 +38,25 @@ func newHandler(c container.Container) (*implHandler, error) {
 		Logger: logger,
 	}
 
-	impl := &implHandler{
-		Manager: api.New(p),
-		service: service.Value(c),
+	manager := api.New(p)
+
+	admin, err := admin.New(c, manager)
+	if err != nil {
+		return nil, err
 	}
 
-	impl.declareAPI()
+	v1, err := v1.New(c, manager)
+	if err != nil {
+		return nil, err
+	}
+
+	impl := &implHandler{
+		Manager: manager,
+		admin:   admin,
+		v1:      v1,
+	}
 
 	return impl, nil
-}
-
-func (impl *implHandler) declareAPI() {
-	router := impl.Router()
-
-	router.Mount("/admin", impl.admin)
-	router.Mount("/api/v1", impl.v1)
 }
 
 /*
