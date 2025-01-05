@@ -42,9 +42,9 @@ func Value(c container.Container) Service {
 	return container.Value[Service](c, _name)
 }
 
-//////////////////////
-/// Implementation ///
-//////////////////////
+/////////////////
+/// Component ///
+/////////////////
 
 func (impl *implComponent) Build() error {
 	c := impl.C()

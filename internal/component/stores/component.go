@@ -40,9 +40,9 @@ func Value(c container.Container) store.Store {
 	return container.Value[store.Store](c, _name)
 }
 
-//////////////////////
-/// Implementation ///
-//////////////////////
+/////////////////
+/// Component ///
+/////////////////
 
 func (impl *implComponent) Build() error {
 	c := impl.C()

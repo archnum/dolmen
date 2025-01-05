@@ -40,9 +40,9 @@ func Value(c container.Container) Adapter {
 	return container.Value[Adapter](c, _name)
 }
 
-//////////////////////
-/// Implementation ///
-//////////////////////
+/////////////////
+/// Component ///
+/////////////////
 
 func (impl *implComponent) Build() error {
 	c := impl.C()
