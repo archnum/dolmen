@@ -10,8 +10,8 @@ import (
 
 	"github.com/archnum/sdk.base/uuid"
 	"github.com/archnum/sdk.http/api"
+	"github.com/archnum/sdk.http/api/apierr"
 	"github.com/archnum/sdk.http/api/bind"
-	"github.com/archnum/sdk.http/api/failure"
 	"github.com/archnum/sdk.http/api/render"
 	"github.com/archnum/sdk.jw/jw"
 )
@@ -26,14 +26,14 @@ func (api *API) createJob(rr render.Renderer) error {
 	if jc.ID == "" {
 		id, err := uuid.New()
 		if err != nil {
-			return failure.InternalServerError(err) ////////////////////////////////////////////////////////////////////
+			return apierr.InternalServerError(err) /////////////////////////////////////////////////////////////////////
 		}
 
 		jc.ID = id
 	}
 
 	if err := jc.Validate(); err != nil {
-		return failure.BadRequest(err) /////////////////////////////////////////////////////////////////////////////////
+		return apierr.BadRequest(err) //////////////////////////////////////////////////////////////////////////////////
 	}
 
 	job, err := api.service.CreateJob(rr.Request().Context(), jc)
