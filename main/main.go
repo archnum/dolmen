@@ -30,6 +30,7 @@ var (
 func main() {
 	app, err := application.New(
 		"dolmen",
+		application.WithEcosystem("bagad"),
 		application.WithVersion(_version),
 		application.WithBuiltAt(_builtAt),
 	)
