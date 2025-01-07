@@ -3,11 +3,11 @@ module github.com/archnum/dolmen
 go 1.23.4
 
 require (
-	github.com/archnum/sdk.application v0.0.0-20250105134711-0cef1d3f886b
+	github.com/archnum/sdk.application v0.0.0-20250107081126-7d3b0a8ffed1
 	github.com/archnum/sdk.base v0.0.0-20250106224000-6ade399e6852
-	github.com/archnum/sdk.http v0.0.0-20250105145202-cd56cb8134b1
-	github.com/archnum/sdk.jw v0.0.0-20250104145423-a5e47830f905
-	github.com/archnum/sdk.loggers v0.0.0-20250104145420-539e3fc1f1ec
+	github.com/archnum/sdk.http v0.0.0-20250107081132-f5aece37200f
+	github.com/archnum/sdk.jw v0.0.0-20250107081137-e220fbc1cf70
+	github.com/archnum/sdk.loggers v0.0.0-20250107081135-351e1b2cddd4
 	github.com/ltrochet/loggers v0.0.0-20241231182134-97fb6d303182
 )
 
